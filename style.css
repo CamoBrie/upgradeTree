@@ -14,19 +14,6 @@ html, body {
   height: 100%;
 }
 
-.treeButton {
-  background: #fff;
-  border: 2px solid #000;
-  color: #000;
-  transition: border 0.3s, color 0.3s, background-position 0.3s;
-}
-
-.treeButton:not(.bought):not(.pBought):hover {
-  background: #000;
-  border: 2px solid #fff;
-  color: #fff;
-}
-
 #upCounter {
   z-index: 1;
   color: #888;
@@ -41,22 +28,4 @@ html, body {
 #upCount {
   color: white;
   font-size 28px;
-}
-
-.bought {
-  color: lime;
-  background-color: black;
-  border: 2px solid lime;
-}
-
-.pBought {
-  background-repeat: no-repeat;
-  background-color: lime;
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 1) 99%, rgba(0, 255, 0, 1) 99%);
-}
-
-.pBought:hover {
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 1) 99%, rgba(0, 255, 0, 1) 99%);
-  border: 2px solid white;
-  color: white;
 }

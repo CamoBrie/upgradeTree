@@ -7,13 +7,13 @@ const cWidth = canvas.width;
 const cHeight = canvas.height;
 
 //treeupgrades
-const maxTreeLevel = 1;
+const maxTreeLevel = 2;
 const treeUpgrades = [{
     uID: 0,
     name: "Allow for passive generation of Upgrade Points.",
     price: 0,
     level: 0,
-    unlocks: [1, 2],
+    unlocks: [1, 2, 3],
     needs: [],
     maxLevel: 1
   },
@@ -35,5 +35,27 @@ const treeUpgrades = [{
     unlocks: [],
     needs: [0],
     maxLevel: 10
+  },
+  {
+    uID: 3,
+    name: "Unlocks adventure.",
+    price: 5,
+    level: 0,
+    unlocks: [],
+    needs: [0],
+    maxLevel: 1,
+    cClass: "advButton"
   }
 ];
+
+const treeLevels = [{
+    level: 0,
+    empty: [0]
+  }
+
+];
+
+const emptyButton = {
+  uID: -1,
+  maxLevel: 0
+};

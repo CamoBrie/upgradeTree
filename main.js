@@ -37,6 +37,9 @@ let game = {
 
         mainButton.setAttribute("id", "treeU_" + item.uID);
         mainButton.classList.add("treeButton");
+        if (item.cClass) {
+          mainButton.classList.add("n" + item.cClass);
+        }
         document.getElementById("buttonStorage").append(mainButton);
 
         mainButton.addEventListener("click", function() {
@@ -61,6 +64,13 @@ let game = {
             continue;
           }
           levelUpgrades.push(treeUpgrades[u]);
+        }
+
+        let item = treeLevels.filter(item => item.level == level)[0];
+        if (item) {
+          for (let i = 0; i < item.empty.length; i++) {
+            levelUpgrades.splice(item.empty[i], 0, emptyButton);
+          }
         }
 
         let spacing = window.innerWidth * 0.8 / (levelUpgrades.length + 1);
@@ -113,6 +123,12 @@ let game = {
             document.getElementById("treeU_" + item.uID).innerHTML = item.name;
           } else {
             document.getElementById("treeU_" + item.uID).innerHTML = item.bName;
+          }
+        }
+
+        if (item.cClass) {
+          if (!document.getElementById("treeU_" + item.uID).classList.contains(item.cClass)) {
+            document.getElementById("treeU_" + item.uID).classList.add(item.cClass);
           }
         }
       }
@@ -178,7 +194,8 @@ let game = {
       }
 
       if (game.tree.upgrades.includes(2)) {
-        let level = game.tree.upgradeLevels[2].currentLevel;
+        let level = game.tree.upgradeLevels.filter(item => item.uID == 2)[0].currentLevel;
+        console.log(level);
         let timeForPoint = Math.round(60 / level);
 
         if (game.time % timeForPoint == 0) {
